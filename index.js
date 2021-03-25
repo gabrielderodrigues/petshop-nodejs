@@ -1,3 +1,5 @@
+var moment = require('moment');
+
 const nomePetShop = "AvaPet";
 
 let animais = [
@@ -39,7 +41,7 @@ let animais = [
     peso: 7,
     dono: 'Gabriel',
     vacinado: false,
-    servicos: ['banho', 'tosa']
+    servicos: []
   },
   {
     nome: 'Rock',
@@ -49,7 +51,7 @@ let animais = [
     peso: 7,
     dono: 'Gabriel',
     vacinado: true,
-    servicos: ['banho', 'tosa']
+    servicos: []
   }
   ,{
     nome: 'Vindisel',
@@ -59,7 +61,7 @@ let animais = [
     peso: 15,
     dono: 'Gabriel',
     vacinado: false,
-    servicos: ['banho', 'tosa']
+    servicos: []
   }
 ]
 
@@ -104,7 +106,8 @@ function inserirCliente(nome, tipo, raca, idade, peso, dono, vacinado) {
     idade: idade,
     peso: peso,
     dono: dono,
-    vacinado: vacinado
+    vacinado: vacinado,
+    servicos: []
   }
 
   animais.push(newAnimal);
@@ -112,4 +115,53 @@ function inserirCliente(nome, tipo, raca, idade, peso, dono, vacinado) {
 
 inserirCliente('Luiz', 'jumento', 'cabrobro', 5, 100, 'Alice', true)
 
-console.log(animais)
+console.log();
+console.log(animais);
+
+const darBanhoAnimal = (animal) => {
+  if (!animal.servicos.includes('banho')) {
+    animal.servicos.push('banho');
+    console.log(moment().format("L - LTS"));
+    console.log(`${animal.nome} está de banho tomado.`)
+  } else {
+    console.log(`${animal.nome} já tomou banho.`)
+  }
+}
+
+console.log()
+console.log("== BANHOS ==")
+darBanhoAnimal(animais[1]);
+darBanhoAnimal(animais[2]);
+darBanhoAnimal(animais[4]);
+
+const tosarAnimal = (animal) => {
+  if (!animal.servicos.includes('tosar')) {
+    animal.servicos.push('tosar');
+    console.log(moment().format("L - LTS"));
+    console.log(`${animal.nome} está tosado.`)
+  } else {
+    console.log(`${animal.nome} já foi tosado.`)
+  }
+}
+
+console.log()
+console.log("== TOSAR ==")
+tosarAnimal(animais[1]);
+tosarAnimal(animais[4]);
+tosarAnimal(animais[3]);
+
+const apararUnhasAnimal = (animal) => {
+  if (!animal.servicos.includes('aparar unhas')) {
+    animal.servicos.includes('aparar unhas');
+    console.log(moment().format("L - LTS"));
+    console.log(`${animal.nome} está de unhas aparadas.`)
+  } else {
+    console.log(`${animal.nome} já teve as unhas aparadas.`)
+  }
+}
+
+console.log()
+console.log("== UNHAS ==")
+apararUnhasAnimal(animais[1]);
+apararUnhasAnimal(animais[4]);
+apararUnhasAnimal(animais[3]);
