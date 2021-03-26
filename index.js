@@ -2,68 +2,7 @@ var moment = require('moment');
 
 const nomePetShop = "AvaPet";
 
-let animais = [
-  {
-    nome: 'Azure',
-    tipo: 'cachorro',
-    raca: 'labrador',
-    idade: 2,
-    peso: 15,
-    dono: 'Gabriel',
-    vacinado: true,
-    servicos: ['banho', 'tosa']
-  },
-  {
-    nome: 'Jack',
-    tipo: 'gato',
-    raca: 'viragato',
-    idade: 5,
-    peso: 8,
-    dono: 'Gabriel',
-    vacinado: true,
-    servicos: ['banho', 'tosa']
-  },
-  {
-    nome: 'Flintcher',
-    tipo: 'cavalo',
-    raca: 'manga-larga marchador',
-    idade: 5,
-    peso: 300,
-    dono: 'Gabriel',
-    vacinado: false,
-    servicos: ['banho', 'tosa']
-  },
-  {
-    nome: 'Hugito',
-    tipo: 'gato',
-    raca: 'gatito',
-    idade: 2,
-    peso: 7,
-    dono: 'Gabriel',
-    vacinado: false,
-    servicos: []
-  },
-  {
-    nome: 'Rock',
-    tipo: 'gato',
-    raca: 'gatito',
-    idade: 1,
-    peso: 7,
-    dono: 'Gabriel',
-    vacinado: true,
-    servicos: []
-  }
-  ,{
-    nome: 'Vindisel',
-    tipo: 'cachorro',
-    raca: 'viralata',
-    idade: 5,
-    peso: 15,
-    dono: 'Gabriel',
-    vacinado: false,
-    servicos: []
-  }
-]
+const animais = require('./dataBase.json')
 
 const listarPets = () => {
   for (let i=0;i<animais.length;i++) {
