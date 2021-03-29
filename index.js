@@ -1,8 +1,18 @@
 var moment = require('moment');
 
+const fs = require('fs');
+
 const nomePetShop = "AvaPet";
 
-const animais = require('./dataBase.json')
+// const animais = require('./dataBase.json')
+
+const animais = JSON.parse(fs.readFileSync('./database.json'));
+
+const WriteJson = (animais) => {
+  // Converte o JS object atualizado em JSON e sobrescreve o db-pets.json de forma sincrona
+  var _animais = JSON.stringify(animais);
+  fs.writeFileSync('database.json', _animais);
+}
 
 const listarPets = () => {
   for (let i=0;i<animais.length;i++) {
@@ -23,17 +33,13 @@ const vacinarPet = (animais) => {
   };
 };
 
-function campanhaVacina() {
-  console.log("===== VACINA =====")
-  let animaisVacinados = 0;
-  for (let animal of animais) {
-    if (!animal.vacinado) {
-      animaisVacinados++;
+const campanhaVacina = (animais) => {
+  animaisVacinados = animais.filter(animais => animais.vacinado === false);
+  for(let animal of animais)
       vacinarPet(animal);
-    }
-  }; 
-  console.log(`${animaisVacinados} foram vacinados!`)
-};
+  console.log(`\nAnimais vacinados na campanha: ${animaisVacinados.length}.`);
+  WriteJson(animais);
+}
 
 campanhaVacina();
 
@@ -50,6 +56,7 @@ function inserirCliente(nome, tipo, raca, idade, peso, dono, vacinado) {
   }
 
   animais.push(newAnimal);
+  WriteJson(animais);
 }
 
 inserirCliente('Luiz', 'jumento', 'cabrobro', 5, 100, 'Alice', true)
@@ -104,3 +111,10 @@ console.log("== UNHAS ==")
 apararUnhasAnimal(animais[1]);
 apararUnhasAnimal(animais[4]);
 apararUnhasAnimal(animais[3]);
+
+const atenderCliente = (animais, servico) => {
+  servico(animais);
+  WriteJson(animais);
+};
+
+atenderCliente(animais[1], darBanhoAnimal);
