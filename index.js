@@ -16,11 +16,12 @@ const writeJson = (animais) => {
 }
 
 const vacinarAnimais = (animal) => {
-  if(!animal.vacinado) {
-    animal.vacinado === true;
-    console.log(`${animal.nome} acabou de ser vacinado.`);
+  let { vacinado, nome } = animal; 
+  if(!vacinado) {
+    vacinado = true;
+    console.log(`${nome} acabou de ser vacinado.`);
   } else {
-    console.log(`${animal.nome} foi vacinado anteriormente.`);
+    console.log(`${nome} foi vacinado anteriormente.`);
   }
 }
 
@@ -55,13 +56,12 @@ const inserirCliente = (nome, tipo, raca, idade, peso, dono, vacinado) => {
 //console.log(animais);
 
 const darBanhoAnimal = (animal) => {
-  if (!animal.servicos.includes('banho')) {
-    animal.servicos.push('banho');
-    console.log(moment().format("L - LTS"));
-    console.log(`${animal.nome} está de banho tomado.`)
-  } else {
-    console.log(`${animal.nome} já tomou banho.`)
-  }
+  const { servicos, nome } = animal;
+  servicos.push({
+    servico: 'banho',
+    data: moment().format("L-LTS")
+  })
+  console.log(`${nome} já tomou banho.`)
 }
 
 // console.log()
@@ -71,13 +71,12 @@ const darBanhoAnimal = (animal) => {
 // darBanhoAnimal(animais[4]);
 
 const tosarAnimal = (animal) => {
-  if (!animal.servicos.includes('tosa')) {
-    animal.servicos.push('tosa');
-    console.log(moment().format("L - LTS"));
-    console.log(`${animal.nome} está tosado.`)
-  } else {
-    console.log(`${animal.nome} já foi tosado.`)
-  }
+  const { servicos, nome } = animal;
+  servicos.push({
+    servico: "tosar",
+    data: moment().format("L-LTS")
+  });
+    console.log(`${nome} já foi tosado.`)  
 }
 
 // console.log()
@@ -88,12 +87,14 @@ const tosarAnimal = (animal) => {
 
 
 const apararUnhasAnimal = (animal) => {
-  animal.servicos.push({
+  const { servicos, nome } = animal;
+  servicos.push({
     servico: "unha",
     data: moment().format("L - LTS")
   });
-  console.log(`${animal.nome} está de unhas aparadas!`);
-}
+  console.log(`${nome} está de unhas aparadas!`);
+} 
+
 
 // console.log()
 // console.log("== UNHAS ==")
@@ -111,19 +112,15 @@ const atenderCliente = (animal, servico) => {
 // atenderCliente(animais[0], apararUnhasAnimal);
 // atenderCliente(animais[1], apararUnhasAnimal);
 
-
-
 // Desafios metodos Array
 
 // FOREACH
 const listarAnimais = () => animais.forEach(function(animais, indice) {
-  console.log(`${indice+1}: ${animais.nome}`)
+  const { nome } = animais;
+  console.log(`${indice+1}: ${nome}`)
 })
 
 listarAnimais();
-
-// const listarAnimais = () => animais.forEach((animais, indice) => console.log(`${indice+1}: ${animais.nome}`))
-
 
 // FILTER
 const tipo = animal => animal.tipo === "cachorro";
@@ -132,8 +129,12 @@ console.log(animais.filter(tipo));
 
 
 // FIND
-const buscarAnimal = (nome) => {
-  return animalBuscado = animais.find(animal => animal.nome === nome);
+const buscarAnimal = (nomeAnimal) => {
+  let animalEncontrado = database.animais.find((animal) => {
+    return animal.nome === nomeAnimal;
+  })
+
+  return animalEncontrado ? animalEncontrado : `Nenhum animal encontrado com o nome ${nomeAnimal}`;
 }
 
 console.log(buscarAnimal('Azure'))
