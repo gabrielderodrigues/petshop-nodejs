@@ -1,1 +1,128 @@
-{"animais":[{"nome":"Azure","tipo":"cachorro","raca":"labrador","idade":2,"peso":15,"dono":"Gabriel","vacinado":true,"servicos":["banho","tosa",{"servico":"unha","data":"03/29/2021 - 11:23:02 AM"}]},{"nome":"Jack","tipo":"gato","raca":"viragato","idade":5,"peso":8,"dono":"Gabriel","vacinado":true,"servicos":["banho","tosa",{"servico":"unha","data":"03/29/2021 - 11:23:02 AM"},{"servico":"unha","data":"03/29/2021 - 11:23:02 AM"}]},{"nome":"Flintcher","tipo":"cavalo","raca":"manga-larga marchador","idade":5,"peso":300,"dono":"Gabriel","vacinado":false,"servicos":["banho","tosa"]},{"nome":"Hugito","tipo":"gato","raca":"gatito","idade":2,"peso":7,"dono":"Gabriel","vacinado":false,"servicos":["tosa",{"servico":"unha","data":"03/29/2021 - 11:23:02 AM"}]},{"nome":"Rock","tipo":"gato","raca":"gatito","idade":1,"peso":7,"dono":"Gabriel","vacinado":true,"servicos":["banho","tosa",{"servico":"unha","data":"03/29/2021 - 11:23:02 AM"}]},{"nome":"Vindisel","tipo":"cachorro","raca":"viralata","idade":5,"peso":15,"dono":"Gabriel","vacinado":false,"servicos":[]},{"nome":"Luiz","tipo":"jumento","raca":"cabrobro","idade":5,"peso":100,"dono":"Alice","vacinado":true,"servicos":[]}]}
+{
+  "animais": [
+    {
+      "nome": "Azure",
+      "tipo": "cachorro",
+      "raca": "labrador",
+      "idade": 2,
+      "peso": 15,
+      "dono": "Gabriel",
+      "vacinado": true,
+      "servicos": [
+        "banho",
+        "tosa",
+        {
+          "servico": "unha",
+          "data": "03/29/2021 - 11:23:02 AM"
+        },
+        {
+          "servico": "unha",
+          "data": "03/29/2021 - 2:49:47 PM"
+        }
+      ]
+    },
+    {
+      "nome": "Jack",
+      "tipo": "gato",
+      "raca": "viragato",
+      "idade": 5,
+      "peso": 8,
+      "dono": "Gabriel",
+      "vacinado": true,
+      "servicos": [
+        "banho",
+        "tosa",
+        {
+          "servico": "unha",
+          "data": "03/29/2021 - 11:23:02 AM"
+        },
+        {
+          "servico": "unha",
+          "data": "03/29/2021 - 11:23:02 AM"
+        },
+        {
+          "servico": "unha",
+          "data": "03/29/2021 - 2:49:47 PM"
+        },
+        {
+          "servico": "unha",
+          "data": "03/29/2021 - 2:49:47 PM"
+        }
+      ]
+    },
+    {
+      "nome": "Flintcher",
+      "tipo": "cavalo",
+      "raca": "manga-larga marchador",
+      "idade": 5,
+      "peso": 300,
+      "dono": "Gabriel",
+      "vacinado": false,
+      "servicos": [
+        "banho",
+        "tosa"
+      ]
+    },
+    {
+      "nome": "Hugito",
+      "tipo": "gato",
+      "raca": "gatito",
+      "idade": 2,
+      "peso": 7,
+      "dono": "Gabriel",
+      "vacinado": false,
+      "servicos": [
+        "tosa",
+        {
+          "servico": "unha",
+          "data": "03/29/2021 - 11:23:02 AM"
+        },
+        {
+          "servico": "unha",
+          "data": "03/29/2021 - 2:49:47 PM"
+        }
+      ]
+    },
+    {
+      "nome": "Rock",
+      "tipo": "gato",
+      "raca": "gatito",
+      "idade": 1,
+      "peso": 7,
+      "dono": "Gabriel",
+      "vacinado": true,
+      "servicos": [
+        "banho",
+        "tosa",
+        {
+          "servico": "unha",
+          "data": "03/29/2021 - 11:23:02 AM"
+        },
+        {
+          "servico": "unha",
+          "data": "03/29/2021 - 2:49:47 PM"
+        }
+      ]
+    },
+    {
+      "nome": "Vindisel",
+      "tipo": "cachorro",
+      "raca": "viralata",
+      "idade": 5,
+      "peso": 15,
+      "dono": "Gabriel",
+      "vacinado": false,
+      "servicos": []
+    },
+    {
+      "nome": "Luiz",
+      "tipo": "jumento",
+      "raca": "cabrobro",
+      "idade": 5,
+      "peso": 100,
+      "dono": "Alice",
+      "vacinado": true,
+      "servicos": []
+    }
+  ]
+}

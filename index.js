@@ -11,18 +11,9 @@ const nomePetShop = "AvaPet"
 // garantir a sobrescrita correta do arquivo json
 const writeJson = (animais) => {
   // Converte o JS object atualizado em JSON e sobrescreve o db-pets.json de forma sincrona
-  var _animais = JSON.stringify(animais);
+  var _animais = JSON.stringify(animais, null, 2);
   fs.writeFileSync('database.json', _animais, 'utf-8');
 }
-
-const listarAnimais = () => {
-  for(let animal of animais) {
-    console.log(`${animal.nome}, ${animal.idade}`);
-    console.log(animal.vacinado ? 'O animal já está vacinado.' : 'O animal ainda não foi vacinado.')
-  }
-}
-
-listarAnimais();
 
 const vacinarAnimais = (animal) => {
   if(!animal.vacinado) {
@@ -41,7 +32,7 @@ const campanhaVacina = (animais) => {
   writeJson(database);
 }
 
-campanhaVacina(animais);
+// campanhaVacina(animais);
 
 const inserirCliente = (nome, tipo, raca, idade, peso, dono, vacinado) => {
   newAnimal = {
@@ -58,10 +49,10 @@ const inserirCliente = (nome, tipo, raca, idade, peso, dono, vacinado) => {
   writeJson(database);
 };
 
-inserirCliente('Luiz', 'jumento', 'cabrobro', 5, 100, 'Alice', true, []);
+// inserirCliente('Luiz', 'jumento', 'cabrobro', 5, 100, 'Alice', true, []);
 
-console.log();
-console.log(animais);
+//console.log();
+//console.log(animais);
 
 const darBanhoAnimal = (animal) => {
   if (!animal.servicos.includes('banho')) {
@@ -73,11 +64,11 @@ const darBanhoAnimal = (animal) => {
   }
 }
 
-console.log()
-console.log("== BANHOS ==")
-darBanhoAnimal(animais[1]);
-darBanhoAnimal(animais[2]);
-darBanhoAnimal(animais[4]);
+// console.log()
+// console.log("== BANHOS ==")
+// darBanhoAnimal(animais[1]);
+// darBanhoAnimal(animais[2]);
+// darBanhoAnimal(animais[4]);
 
 const tosarAnimal = (animal) => {
   if (!animal.servicos.includes('tosa')) {
@@ -88,11 +79,12 @@ const tosarAnimal = (animal) => {
     console.log(`${animal.nome} já foi tosado.`)
   }
 }
-console.log()
-console.log("== TOSAR ==")
-tosarAnimal(animais[1]);
-tosarAnimal(animais[4]);
-tosarAnimal(animais[3]);
+
+// console.log()
+// console.log("== TOSAR ==")
+// tosarAnimal(animais[1]);
+// tosarAnimal(animais[4]);
+// tosarAnimal(animais[3]);
 
 
 const apararUnhasAnimal = (animal) => {
@@ -103,18 +95,45 @@ const apararUnhasAnimal = (animal) => {
   console.log(`${animal.nome} está de unhas aparadas!`);
 }
 
-console.log()
-console.log("== UNHAS ==")
-apararUnhasAnimal(animais[1]);
-apararUnhasAnimal(animais[4]);
-apararUnhasAnimal(animais[3]);
+// console.log()
+// console.log("== UNHAS ==")
+// apararUnhasAnimal(animais[1]);
+// apararUnhasAnimal(animais[4]);
+// apararUnhasAnimal(animais[3]);
 
 const atenderCliente = (animal, servico) => {
   servico(animal);
   writeJson(database);
 }
 
-console.log()
-console.log("== ATENDER CLIENTE ==")
-atenderCliente(animais[0], apararUnhasAnimal);
-atenderCliente(animais[1], apararUnhasAnimal);
+// console.log()
+// console.log("== ATENDER CLIENTE ==")
+// atenderCliente(animais[0], apararUnhasAnimal);
+// atenderCliente(animais[1], apararUnhasAnimal);
+
+
+
+// Desafios metodos Array
+
+// FOREACH
+const listarAnimais = () => animais.forEach(function(animais, indice) {
+  console.log(`${indice+1}: ${animais.nome}`)
+})
+
+listarAnimais();
+
+// const listarAnimais = () => animais.forEach((animais, indice) => console.log(`${indice+1}: ${animais.nome}`))
+
+
+// FILTER
+const tipo = animal => animal.tipo === "cachorro";
+
+console.log(animais.filter(tipo));
+
+
+// FIND
+const buscarAnimal = (nome) => {
+  return animalBuscado = animais.find(animal => animal.nome === nome);
+}
+
+console.log(buscarAnimal('Azure'))
